@@ -24,6 +24,7 @@
 //
 
 import Foundation
+import SwiftKeccak
 #if BitcoinKitXcode
 import BitcoinKit.Private
 #else
@@ -32,11 +33,12 @@ import BitcoinKitPrivate
 
 public struct Crypto {
     public static func sha1(_ data: Data) -> Data {
-        return _Hash.sha1(data)
+      return _Hash.sha1(data)
     }
 
     public static func sha256(_ data: Data) -> Data {
-        return _Hash.sha256(data)
+//        return _Hash.sha256(data)
+      return data.keccak()
     }
 
     public static func sha256sha256(_ data: Data) -> Data {
